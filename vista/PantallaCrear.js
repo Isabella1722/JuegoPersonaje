@@ -2,7 +2,7 @@ class PantallaCrear {
 
     constructor(){
 
-        this.pantallaCrea = loadImage("./data/pantallaCreacion.jpg");
+        this.pantallaCrea = loadImage("./data/pantallaCreacion1.jpg");
         this.botonBase = loadImage("./data/base_1.png");
         this.activarBotonB=true;
      }

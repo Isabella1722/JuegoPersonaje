@@ -7,6 +7,9 @@ class Logica {
         this.pantallaInstru = new PantallaInstrucciones();
         this.pantallaCrea = new PantallaCrear();
         this.basePersonaje= new CuerpoBase();
+        this.outfit1= new Ropa();
+        this.outfit2= new Ropa();
+      
         this.pantalla = 0;
       //  let botonJugar;
     }
@@ -58,6 +61,18 @@ class Logica {
                         this.basePersonaje.dibujarBase();
                     }
                    
+                    if (this.outfit1.ropa1E==true){
+
+                        this.outfit1.dibujarRopa1();
+                        this.outfit2.ropa2E=false;
+
+                    }
+                    if (this.outfit2.ropa2E==true){
+
+                        this.outfit2.dibujarRopa2();
+                        this.outfit1.ropa1E=false;
+
+                    }
 
                 
 
@@ -138,6 +153,17 @@ class Logica {
                   if (mouseX >= 114 && mouseX <= 227 && mouseY >= 136 && mouseY <= 567) {
                     this.basePersonaje.moverBase();
                    }
+
+
+                   if (mouseX >= 460 && mouseX <= 549 && mouseY >= 406 && mouseY <= 492) {
+                    this.outfit1.ropa1E=true;
+                    this.outfit2.ropa2E=false;
+                   }
+                   if (mouseX >= 569 && mouseX <= 658 && mouseY >= 405 && mouseY <= 493) {
+                    this.outfit2.ropa2E=true;
+                    this.outfit1.ropa1E=false;
+                   }
+
 
 
 
