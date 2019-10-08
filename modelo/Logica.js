@@ -135,6 +135,10 @@ class Logica {
                   // this.basePersonaje.dibujarBase();
                   }
 
+                  if (mouseX >= 114 && mouseX <= 227 && mouseY >= 136 && mouseY <= 567) {
+                    this.basePersonaje.moverBase();
+                   }
+
 
 
                 break;

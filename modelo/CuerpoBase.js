@@ -13,10 +13,16 @@ class CuerpoBase{
       imageMode(CENTER);
       image(this.basePersonaje, 146, 350, 170, 440);
     }
-       
 
-     
+    
      }
+     moverBase(){
+      this.posX=mouseX;
+      this.posY=mouseY;
+
+
+      
+   }
 
 
 
