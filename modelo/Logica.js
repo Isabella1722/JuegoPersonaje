@@ -6,6 +6,7 @@ class Logica {
         this.pantallaInicio = new PantallaIncial();
         this.pantallaInstru = new PantallaInstrucciones();
         this.pantallaCrea = new PantallaCrear();
+        this.basePersonaje= new CuerpoBase();
         this.pantalla = 0;
       //  let botonJugar;
     }
@@ -49,6 +50,26 @@ class Logica {
             case 2:
                 //PANTALLAJUEGO
                 this.pantallaCrea.dibujarPantallaCrear();
+                if (mouseX >= 440 && mouseX <= 588 && mouseY >= 507 && mouseY <= 547) {
+                    this.pantallaCrea.activarBotonB==false;
+                    
+                   }
+                    if (this.basePersonaje.activarBase==true){
+                        this.basePersonaje.dibujarBase();
+                    }
+                   
+
+                
+
+            
+
+            //    fill(127,3,98);
+               // noStroke();
+               // rectMode(CENTER);
+             //   rect(515,531,150,60);
+               // fill(255);
+               // Text("Base");
+               
 
 
 
@@ -107,6 +128,12 @@ class Logica {
 
             case 2:
                 //PANTALLAJUEGO
+                if (mouseX >= 440 && mouseX <= 588 && mouseY >= 507 && mouseY <= 547) {
+                   this.pantallaCrea.activarBotonB=false;
+
+                  this.basePersonaje.activarBase=true;
+                  // this.basePersonaje.dibujarBase();
+                  }
 
 
 
