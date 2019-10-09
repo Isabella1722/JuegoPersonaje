@@ -19,4 +19,17 @@ function mousePressed(){
 
     print(mouseX + " " + mouseY + " \n");
     logica.evaluacionPantallas();
+    logica.arrastreOjos();
+    
+}
+
+function mouseDragged(){
+    logica.movimientoOjos();
+}
+
+
+
+ function mouseReleased(){
+ 
+    logica.relacionOjosCara();
 }

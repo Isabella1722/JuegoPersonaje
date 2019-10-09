@@ -301,6 +301,52 @@ class Logica {
             
     }
 
+    arrastreOjos(){
+
+       
+        if (!this.ojo1.ojoCompleto && mouseX >= 364 && mouseX <= 419 && mouseY >= 235 && mouseY <= 242) {
+			this.ojo1.arrastrarOjo1 = true;
+            //System.out.println("entro clicked");
+            console.log("entro click");
+		
+
+		}
+
+    }
+
+    movimientoOjos(){
+// MOVIMIENTO DE LOS OJOS A LA CARA
+
+if (this.ojo1.arrastrarOjo1 == true && this.ojo1.ojoCompleto==false) {
+    // libroEvalua1=false;
+    this.ojo1.posXO = mouseX;
+    this.ojo1.posYO = mouseY;
+    console.log("entro movimiento");
+
+    
+}
+
+    }
+
+    relacionOjosCara(){
+
+        if(!this.ojo1.ojoCompleto && this.ojo1.arrastrarOjo1 && mouseX >= 123 && mouseX <= 168 && mouseY >= 171 && mouseY <= 176) {
+            this.ojo1.posXO=147;
+            this.ojo1.posYO=174;
+           
+            this.ojo1.ojoCompleto=true;
+            //System.out.println("liberó");
+            }else if(this.ojo1.arrastrarOjo1 && !this.ojo1.ojoCompleto){
+              //  this.ojo1.posXO = 390;
+               // this.ojo1.posYO = 240;
+                this.ojo1.posXO=390;
+            this.ojo1.posYO=240;
+            }
+            
+            this.ojo1.arrastrarOjo1 = false;
+            console.log("entro relación");
+    }
+
 
 
 

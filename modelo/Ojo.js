@@ -14,6 +14,13 @@ class Ojo {
         this.posX = posX;
         this.posY = posY;
 
+        this.arrastrarOjo1=false;
+        this.ojoCompleto=false;
+
+
+        this.posXO=390;
+		this.posYO=240;
+
     }
 
     dibujarOjoCafe() {
