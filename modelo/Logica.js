@@ -133,6 +133,14 @@ class Logica {
 
                     }
 
+                    if ((this.basePersonaje.activarBase==true) && (this.outfit1.ropa1E==true ||this.outfit2.ropa2E==true) 
+                    && (this.look1.cabello1E==true || this.look2.cabello2E==true) && (this.labios1.boca1E==true || this.labios2.boca3E==true) &&
+                    (this.ojo1.ojo1E==true || this.ojo2.ojo2E==true || this.ojo3.ojo3E==true)){
+                        this.pantalla=3;
+
+
+                    }
+
 
 
                    
@@ -157,6 +165,7 @@ class Logica {
 
             case 3:
                 //PANTALLA NOMBRAR PERSONAJE
+                background (0);
 
 
                 break;
