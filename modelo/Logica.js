@@ -9,9 +9,15 @@ class Logica {
         this.basePersonaje= new CuerpoBase();
         this.outfit1= new Ropa();
         this.outfit2= new Ropa();
+        this.look1= new Cabello();
+        this.look2= new Cabello();
+        this.labios1= new Boca();
+        this.labios2= new Boca();
+
+      
       
         this.pantalla = 0;
-      //  let botonJugar;
+
     }
 
     pintarPantallas() {
@@ -38,9 +44,9 @@ class Logica {
                 //PANTALLA INSTRUCCIONES
                 this.pantallaInstru.dibujarPantallaInstrucciones();
 
-                this.botonBase=mouseX >= 428 && mouseX <= 572 && mouseY >= 516 && mouseY <= 556;
+                this.flecha=mouseX >= 598 && mouseX <= 680 && mouseY >= 553 && mouseY <= 579;
 
-                if (this.botonBase){
+                if (this.flecha){
                     cursor(HAND)
                 }else {
 
@@ -53,8 +59,10 @@ class Logica {
             case 2:
                 //PANTALLAJUEGO
                 this.pantallaCrea.dibujarPantallaCrear();
+                cursor(ARROW);
                 if (mouseX >= 440 && mouseX <= 588 && mouseY >= 507 && mouseY <= 547) {
                     this.pantallaCrea.activarBotonB==false;
+                    cursor(HAND);
                     
                    }
                     if (this.basePersonaje.activarBase==true){
@@ -73,6 +81,37 @@ class Logica {
                         this.outfit1.ropa1E=false;
 
                     }
+
+                    if (this.look1.cabello1E==true){
+
+                        this.look1.dibujarCabello1();
+                        this.look2.cabello2E=false;
+
+                    }
+
+                    if (this.look2.cabello2E==true){
+
+                        this.look2.dibujarCabello2();
+                        this.look1.cabello1E=false;
+
+                    }
+
+                    if (this.labios1.boca1E==true){
+
+                        this.labios1.dibujarBoca1();
+                        this.labios2.boca2E=false;
+
+                    }
+
+                    if (this.labios2.boca2E==true){
+
+                        this.labios2.dibujarBoca2();
+                        this.labios1.boca1E=false;
+
+                    }
+
+
+                   
 
                 
 
@@ -132,7 +171,7 @@ class Logica {
             case 1:
                 //PANTALLA INSTRUCCIONES
                 
-                if (mouseX >= 428 && mouseX <= 572 && mouseY >= 516 && mouseY <= 556) {
+                if (mouseX >= 598 && mouseX <= 680 && mouseY >= 553 && mouseY <= 579) {
                     this.pantalla = 2;
                   }
 
@@ -147,6 +186,8 @@ class Logica {
                    this.pantallaCrea.activarBotonB=false;
 
                   this.basePersonaje.activarBase=true;
+   
+                  
                   // this.basePersonaje.dibujarBase();
                   }
 
@@ -162,6 +203,25 @@ class Logica {
                    if (mouseX >= 569 && mouseX <= 658 && mouseY >= 405 && mouseY <= 493) {
                     this.outfit2.ropa2E=true;
                     this.outfit1.ropa1E=false;
+                   }
+
+                   if (mouseX >= 602 && mouseX <= 670 && mouseY >= 219 && mouseY <= 277) {
+                    this.look1.cabello1E=true;
+                    this.look2.cabello2E=false;
+                   }
+                   if (mouseX >= 600 && mouseX <= 669 && mouseY >= 307 && mouseY <= 365) {
+                    this.look2.cabello2E=true;
+                    this.look1.cabello1E=false;
+                   }
+
+                   if (mouseX >= 474 && mouseX <= 541 && mouseY >= 218 && mouseY <= 256) {
+                    this.labios1.boca1E=true;
+                    this.labios2.boca2E=false;
+                   }
+
+                   if (mouseX >= 472 && mouseX <= 541 && mouseY >= 269 && mouseY <= 310) {
+                    this.labios2.boca2E=true;
+                    this.labios1.boca1E=false;
                    }
 
 
