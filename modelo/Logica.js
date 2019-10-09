@@ -13,6 +13,9 @@ class Logica {
         this.look2= new Cabello();
         this.labios1= new Boca();
         this.labios2= new Boca();
+        this.ojo1= new Ojo();
+        this.ojo2= new Ojo();
+        this.ojo3= new Ojo();
 
       
       
@@ -110,6 +113,27 @@ class Logica {
 
                     }
 
+                    if (this.ojo1.ojo1E==true){
+
+                        this.ojo1.dibujarOjoCafe();
+                       
+
+                    }
+
+                    if (this.ojo2.ojo2E==true){
+
+                        this.ojo2.dibujarOjoAzul();
+                       
+
+                    }
+                    if (this.ojo3.ojo3E==true){
+
+                        this.ojo3.dibujarOjoVerde();
+                       
+
+                    }
+
+
 
                    
 
@@ -187,37 +211,46 @@ class Logica {
 
                   this.basePersonaje.activarBase=true;
    
-                  
-                  // this.basePersonaje.dibujarBase();
                   }
+                  //BASE PERSONAJE
 
                   if (mouseX >= 114 && mouseX <= 227 && mouseY >= 136 && mouseY <= 567) {
                     this.basePersonaje.moverBase();
                    }
 
-
+                   //OUTFIT 1
                    if (mouseX >= 460 && mouseX <= 549 && mouseY >= 406 && mouseY <= 492) {
                     this.outfit1.ropa1E=true;
                     this.outfit2.ropa2E=false;
                    }
+
+                   //OUTFIT 1
                    if (mouseX >= 569 && mouseX <= 658 && mouseY >= 405 && mouseY <= 493) {
                     this.outfit2.ropa2E=true;
                     this.outfit1.ropa1E=false;
                    }
 
+                   //LOOK 1
                    if (mouseX >= 602 && mouseX <= 670 && mouseY >= 219 && mouseY <= 277) {
                     this.look1.cabello1E=true;
                     this.look2.cabello2E=false;
                    }
+
+                   
+                   //LOOK 2
                    if (mouseX >= 600 && mouseX <= 669 && mouseY >= 307 && mouseY <= 365) {
                     this.look2.cabello2E=true;
                     this.look1.cabello1E=false;
                    }
 
+                   
+                   //LABIOS 1
                    if (mouseX >= 474 && mouseX <= 541 && mouseY >= 218 && mouseY <= 256) {
                     this.labios1.boca1E=true;
                     this.labios2.boca2E=false;
                    }
+
+                   //LABIOS 2
 
                    if (mouseX >= 472 && mouseX <= 541 && mouseY >= 269 && mouseY <= 310) {
                     this.labios2.boca2E=true;
