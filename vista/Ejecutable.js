@@ -33,3 +33,20 @@ function mouseDragged(){
  
     logica.relacionOjosCara();
 }
+
+function keyPressed(){
+
+if (keyCode==BACKSPACE){
+
+    logica.pantallaNomP.eliminarTextoInput();
+}
+
+}
+
+function keyTyped(){
+    if (keyCode!= BACKSPACE && keyCode!= ENTER){
+
+        logica.pantallaNomP.escribirTextoInput(key);
+    }
+
+}

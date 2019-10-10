@@ -5,6 +5,7 @@ class Logica {
         //CREAR PANTALLAS
         this.pantallaInicio = new PantallaIncial();
         this.pantallaInstru = new PantallaInstrucciones();
+        this.pantallaNomP= new PantallaNombrarPersonaje();
         this.pantallaCrea = new PantallaCrear();
         this.basePersonaje= new CuerpoBase();
         this.outfit1= new Ropa();
@@ -13,9 +14,11 @@ class Logica {
         this.look2= new Cabello();
         this.labios1= new Boca();
         this.labios2= new Boca();
-        this.ojo1= new Ojo();
-        this.ojo2= new Ojo();
+        this.ojo1= new Ojo(390,240);
+        this.ojo2= new Ojo(390,290);
         this.ojo3= new Ojo();
+
+      //  this.input = new InputNombre();
 
       
       
@@ -72,61 +75,61 @@ class Logica {
                         this.basePersonaje.dibujarBase();
                     }
                    
-                    if (this.outfit1.ropa1E==true){
+                    if (this.outfit1.ropa1E==true && this.basePersonaje.activarBase==true){
 
                         this.outfit1.dibujarRopa1();
                         this.outfit2.ropa2E=false;
 
                     }
-                    if (this.outfit2.ropa2E==true){
+                    if (this.outfit2.ropa2E==true && this.basePersonaje.activarBase==true){
 
                         this.outfit2.dibujarRopa2();
                         this.outfit1.ropa1E=false;
 
                     }
 
-                    if (this.look1.cabello1E==true){
+                    if (this.look1.cabello1E==true && this.basePersonaje.activarBase==true){
 
                         this.look1.dibujarCabello1();
                         this.look2.cabello2E=false;
 
                     }
 
-                    if (this.look2.cabello2E==true){
+                    if (this.look2.cabello2E==true && this.basePersonaje.activarBase==true){
 
                         this.look2.dibujarCabello2();
                         this.look1.cabello1E=false;
 
                     }
 
-                    if (this.labios1.boca1E==true){
+                    if (this.labios1.boca1E==true && this.basePersonaje.activarBase==true){
 
                         this.labios1.dibujarBoca1();
                         this.labios2.boca2E=false;
 
                     }
 
-                    if (this.labios2.boca2E==true){
+                    if (this.labios2.boca2E==true && this.basePersonaje.activarBase==true){
 
                         this.labios2.dibujarBoca2();
                         this.labios1.boca1E=false;
 
                     }
 
-                    if (this.ojo1.ojo1E==true){
+                    if (this.ojo1.ojo1E==true && this.basePersonaje.activarBase==true){
 
                         this.ojo1.dibujarOjoCafe();
                        
 
                     }
 
-                    if (this.ojo2.ojo2E==true){
+                    if (this.ojo2.ojo2E==true&& this.basePersonaje.activarBase==true){
 
                         this.ojo2.dibujarOjoAzul();
                        
 
                     }
-                    if (this.ojo3.ojo3E==true){
+                    if (this.ojo3.ojo3E==true && this.basePersonaje.activarBase==true){
 
                         this.ojo3.dibujarOjoVerde();
                        
@@ -165,13 +168,19 @@ class Logica {
 
             case 3:
                 //PANTALLA NOMBRAR PERSONAJE
-                background (0);
+                ///background (0);
+               // this.input.paint();
+               this.pantallaNomP.dibujarPantallaNombrar();
+       
+            
+               
+               
 
 
                 break;
 
 
-            case 3:
+            case 4:
                 //PANTALLA HISTORIAL PERSONAJES
 
 
@@ -265,7 +274,7 @@ class Logica {
                     this.labios2.boca2E=true;
                     this.labios1.boca1E=false;
                    }
-
+                
 
 
 
@@ -275,12 +284,15 @@ class Logica {
 
             case 3:
                 //PANTALLA NOMBRAR PERSONAJE
+                this.pantallaNomP.activarInput(mouseX,mouseY);
+
+               
 
 
                 break;
 
 
-            case 3:
+            case 4:
                 //PANTALLA HISTORIAL PERSONAJES
 
 
@@ -304,7 +316,7 @@ class Logica {
     arrastreOjos(){
 
        
-        if (!this.ojo1.ojoCompleto && mouseX >= 364 && mouseX <= 419 && mouseY >= 235 && mouseY <= 242) {
+        if (!this.ojo1.arrastrarOjo1 && mouseX >= 364 && mouseX <= 419 && mouseY >= 235 && mouseY <= 242) {
 			this.ojo1.arrastrarOjo1 = true;
             //System.out.println("entro clicked");
             console.log("entro click");
@@ -317,7 +329,7 @@ class Logica {
     movimientoOjos(){
 // MOVIMIENTO DE LOS OJOS A LA CARA
 
-if (this.ojo1.arrastrarOjo1 == true && this.ojo1.ojoCompleto==false) {
+if (this.ojo1.arrastrarOjo1 == true ) {
     // libroEvalua1=false;
     this.ojo1.posXO = mouseX;
     this.ojo1.posYO = mouseY;
@@ -330,16 +342,15 @@ if (this.ojo1.arrastrarOjo1 == true && this.ojo1.ojoCompleto==false) {
 
     relacionOjosCara(){
 
-        if(!this.ojo1.ojoCompleto && this.ojo1.arrastrarOjo1 && mouseX >= 123 && mouseX <= 168 && mouseY >= 171 && mouseY <= 176) {
+        if(!this.ojo1.ojoCompleto && this.ojo1.arrastrarOjo1 && mouseX >= 123 && mouseX <= 173 && mouseY >= 168 && mouseY <= 179) {
             this.ojo1.posXO=147;
             this.ojo1.posYO=174;
            
             this.ojo1.ojoCompleto=true;
             //System.out.println("liberó");
             }else if(this.ojo1.arrastrarOjo1 && !this.ojo1.ojoCompleto){
-              //  this.ojo1.posXO = 390;
-               // this.ojo1.posYO = 240;
-                this.ojo1.posXO=390;
+             
+                this.ojo1.posXO=410;
             this.ojo1.posYO=240;
             }
             
@@ -347,10 +358,12 @@ if (this.ojo1.arrastrarOjo1 == true && this.ojo1.ojoCompleto==false) {
             console.log("entro relación");
     }
 
-
-
-
-
+    
 
 
 }
+
+
+
+
+

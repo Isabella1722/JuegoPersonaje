@@ -1,6 +1,6 @@
 class Ojo {
 
-    constructor(posX, posY) {
+    constructor(posXO, posYO) {
 
         
         this.ojo1 = loadImage("./data/OjosCafe.png");
@@ -11,22 +11,25 @@ class Ojo {
         this.ojo2E = true;
         this.ojo3E = true;
       
-        this.posX = posX;
-        this.posY = posY;
+       // this.posX = mouseX;
+        //this.posY = mouseY;
 
         this.arrastrarOjo1=false;
         this.ojoCompleto=false;
 
 
-        this.posXO=390;
-		this.posYO=240;
+       // this.posXO=390;
+        //this.posYO=240;
+        
+        this.posXO=posXO;
+		this.posYO=posYO;
 
     }
 
     dibujarOjoCafe() {
         if (this.ojo1E == true) {
             imageMode(CENTER);
-            image(this.ojo1, 392, 240 , 58, 12);
+            image(this.ojo1, this.posXO, this.posYO , 50, 10);
         }
 
 
@@ -35,15 +38,22 @@ class Ojo {
     dibujarOjoAzul() {
         if (this.ojo2E == true) {
             imageMode(CENTER);
-            image(this.ojo2,392, 291, 58, 12);
+            image(this.ojo2,this.posXO, this.posYO , 50, 10);
         }
 
     }
     dibujarOjoVerde() {
         if (this.ojo3E == true) {
             imageMode(CENTER);
-            image(this.ojo3,392, 340,  58, 12);
+            image(this.ojo3,390, 341,  50, 10);
         }
+
+    }
+
+    movimiento(){
+
+        this.posX = mouseX;
+        this.posY = mouseY;
 
     }
 }
