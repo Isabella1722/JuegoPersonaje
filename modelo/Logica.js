@@ -1,6 +1,7 @@
 class Logica {
 
 
+
     constructor() {
         //CREAR PANTALLAS
         this.pantallaInicio = new PantallaIncial();
@@ -17,6 +18,12 @@ class Logica {
         this.ojo1 = new Ojo(390, 240);
         this.ojo2 = new Ojo(390, 290);
         this.ojo3 = new Ojo();
+        this.pantallaHist = new PantallaHistorial();
+        if (JSON.parse(localStorage.getItem("users")) !== null) {
+            this.users = JSON.parse(localStorage.getItem("users"));
+        }else{
+            this.users = [];
+        }
 
         //  this.input = new InputNombre();
 
@@ -25,7 +32,7 @@ class Logica {
         this.pantalla = 0;
 
     }
-
+    //es todo lo que se manda al DRAW DE EJECUTABLE
     pintarPantallas() {
         switch (this.pantalla) {
             case 0:
@@ -182,7 +189,22 @@ class Logica {
 
             case 4:
                 //PANTALLA HISTORIAL PERSONAJES
+                this.pantallaHist.dibujarPantallaHistorial();
+                let users2 = new Array();
+                let element = 0;
+                //La variable users2 la iguala a lo que tiene localStorage en su key users 
+                //En este caso, tendrá un arreglo en formato JSON de usuarios.
+                // JSON.parse se utiliza para convertir el formato JSON a un objeto tipo Array()
+                // Por lo tanto, ya puede dar tratamiento a users2 como si fuera un Array
+                //Si localStorage no tiene nada, la siguiente línea dará error :v 
 
+                users2 = this.users;
+
+                for (element in users2) {
+                    text(users2[element].name, 50, 200 + (element * 50));
+                    text(users2[element].id, 150, 200 + (element * 50));
+                    text(users2[element].date, 350, 200 + (element * 50));
+                }
 
                 break;
 
@@ -200,6 +222,56 @@ class Logica {
 
 
     }
+
+
+
+
+    ordenarId() {
+        
+        this.users.sort(function (a, b) {
+            if (a.id > b.id) {
+                return 1;
+            }
+            if (a.id < b.id) {
+                return -1;
+            }
+            // a must be equal to b
+            return 0;
+        });
+
+    }
+
+    ordenarName() {
+        
+        this.users.sort(function (a, b) {
+            if (a.name > b.name) {
+                return 1;
+            }
+            if (a.name < b.name) {
+                return -1;
+            }
+            // a must be equal to b
+            return 0;
+        });
+
+    }
+
+    ordenarDate() {
+        
+        this.users.sort(function (a, b) {
+            if (a.date > b.date) {
+                return 1;
+            }
+            if (a.date < b.date) {
+                return -1;
+            }
+            // a must be equal to b
+            return 0;
+        });
+
+    }
+
+    //es todo lo que se manda al mousePressed DE EJECUTABLE
     evaluacionPantallas() {
 
         switch (this.pantalla) {
@@ -288,7 +360,22 @@ class Logica {
                 //BOTÓN GUARDAR
                 if (mouseX >= 421 && mouseX <= 542 && mouseY >= 165 && mouseY <= 195) {
 
+                    var today = new Date();
+                    var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+                    var id = today.getFullYear() + '' + (today.getMonth() + 1) + '' + today.getDate() + '' + today.getHours() + '' + today.getMinutes() + '' + today.getSeconds();
 
+
+                    let user = new Object();
+                    user.name = this.pantallaNomP.input.getTexto();
+                    user.id = id;
+                    user.date = date;
+                    if (JSON.parse(localStorage.getItem("users")) !== null) {
+                        this.users = JSON.parse(localStorage.getItem("users"));
+                    }
+                    this.users.push(user);
+                    localStorage.clear();
+                    localStorage.setItem("users", JSON.stringify(this.users));
+                    console.log(localStorage);
 
                 }
 
@@ -313,6 +400,7 @@ class Logica {
 
                 //BOTÓN HISTORIAL
                 if (mouseX >= 90 && mouseX <= 285 && mouseY >= 398 && mouseY <= 445) {
+                    this.pantalla = 4;
 
 
 

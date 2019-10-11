@@ -40,6 +40,15 @@ if (keyCode==BACKSPACE){
 
     logica.pantallaNomP.eliminarTextoInput();
 }
+if(key == 'i' || key == 'I'){
+    logica.ordenarId();
+}
+if(key == 'n' || key == 'N'){
+    logica.ordenarName();
+}
+if(key == 'd' || key == 'D'){
+    logica.ordenarDate();
+}
 
 }
 
