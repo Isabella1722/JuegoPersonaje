@@ -1,6 +1,6 @@
 class Ropa {
 
-    constructor(posX, posY) {
+    constructor(posXO, posYO) {
 
         
         this.ropa1 = loadImage("./data/Ropa1.png");
@@ -9,15 +9,16 @@ class Ropa {
         this.ropa2E = false;
         this.ropa1E = false;
        // this.ropa3E = false;
-        this.posX = posX;
-        this.posY = posY;
+        this.posXO = posXO;
+        this.posYO = posYO;
 
     }
 
     dibujarRopa1() {
         if (this.ropa1E == true) {
             imageMode(CENTER);
-            image(this.ropa1, 148, 307, 100, 160);
+            image(this.ropa1, this.posXO, this.posXO, 100, 160);
+            //148  307
         }
 
 
@@ -26,11 +27,28 @@ class Ropa {
     dibujarRopa2() {
         if (this.ropa2E == true) {
             imageMode(CENTER);
-            image(this.ropa2,  164, 369, 118,295);
+            image(this.ropa2, this.posXO, this.posXO, 118,295);
+
+            //164  369
         }
 
     }
    
+    getPosXO() {
+        return this.posXO;
+     }
+  
+     setPosXO(posXO) {
+        this.posXO = posXO;
+     }
+  
+     getPosYO() {
+        return this.posYO;
+     }
+  
+     setPosYO (posYO) {
+     this.posYO = posYO;
+  }
 
 
 

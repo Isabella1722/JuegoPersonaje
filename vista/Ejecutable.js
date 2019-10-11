@@ -19,19 +19,25 @@ function mousePressed(){
 
     print(mouseX + " " + mouseY + " \n");
     logica.evaluacionPantallas();
-    logica.arrastreOjos();
+    logica.arrastreOjosUno();
+    logica.arrastreOjosDos();
     
 }
 
 function mouseDragged(){
-    logica.movimientoOjos();
+    logica.movimientoOjosUno();
+    logica.movimientoOjosDos();
+    
+   
+
 }
 
 
 
  function mouseReleased(){
- 
-    logica.relacionOjosCara();
+    logica.relacionOjosCaraUno();
+    logica.relacionOjosCaraDos();
+    logica.soltarBase();
 }
 
 function keyPressed(){
