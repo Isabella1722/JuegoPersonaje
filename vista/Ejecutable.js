@@ -5,7 +5,7 @@ function setup() {
     createCanvas(700, 600);
    
    logica =new Logica();
-
+  // localStorage.clear();
 }
 
 function draw() {

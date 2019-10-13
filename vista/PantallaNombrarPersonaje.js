@@ -19,6 +19,7 @@ class PantallaNombrarPersonaje{
     activarInput(mX, mY) {
       if (mX > 90 && mX < 397 && mY > 169 && mY < 192) {
           this.input.setActivar(true);
+          alert("Escribe el nombre en minúsculas");
       } else {
 
           this.input.setActivar(false);
@@ -31,7 +32,7 @@ class PantallaNombrarPersonaje{
 //console.log("entro text");
       if (this.input.getActivar() && this.input.getTexto().length < 20) {
           this.input.setTexto(this.input.getTexto() + k);
-         
+         textAlign(LEFT);
 
 
       }

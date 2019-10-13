@@ -351,7 +351,8 @@ class Logica {
                 text("Nombre",42,170);
                 text("ID personaje",200,170);
                 text("Fecha de creación",387,170);
-                text("Para ordenar la lista: tecla n: nombre, tecla i: Id, tecla f: Fecha",42,140);
+                text("Para ordenar la lista: tecla n: nombre, tecla i: Id, tecla f: Fecha",233,140);
+              
    
 
 
