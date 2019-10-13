@@ -28,7 +28,7 @@ class PantallaNombrarPersonaje{
   }
 
   escribirTextoInput(k) {
-console.log("entro text");
+//console.log("entro text");
       if (this.input.getActivar() && this.input.getTexto().length < 20) {
           this.input.setTexto(this.input.getTexto() + k);
          
@@ -39,7 +39,7 @@ console.log("entro text");
   }
 
   eliminarTextoInput(){
-   console.log("elimino text");
+   //console.log("elimino text");
 
       if (this.input.getActivar() && this.input.getTexto().length  -1 >=0) {
           let indice=this.input.getTexto().length-1;

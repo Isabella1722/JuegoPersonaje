@@ -52,7 +52,7 @@ if(key == 'i' || key == 'I'){
 if(key == 'n' || key == 'N'){
     logica.ordenarName();
 }
-if(key == 'd' || key == 'D'){
+if(key == 'f' || key == 'F'){
     logica.ordenarDate();
 }
 

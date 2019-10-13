@@ -9,8 +9,8 @@ class Logica {
         this.pantallaNomP = new PantallaNombrarPersonaje();
         this.pantallaCrea = new PantallaCrear();
         this.basePersonaje = new CuerpoBase(146, 350);
-        this.outfit1 = new Ropa( 148 , 307);
-        this.outfit2 = new Ropa();
+        this.outfit1 = new Ropa(/*148 , 307*/ );
+        this.outfit2 = new Ropa(/*164,  369*/);
         this.look1 = new Cabello(/*148,  307*/);
         this.look2 = new Cabello(/*164,  369*/);
         this.labios1 = new Boca();
@@ -32,7 +32,7 @@ class Logica {
 
 
 
-        this.pantalla = 2;
+        this.pantalla = 0;
 
     }
     //es todo lo que se manda al DRAW DE EJECUTABLE
@@ -96,7 +96,7 @@ class Logica {
                     if (this.ojo1.ojoCompleto1 == true) {
                         this.ojo1.setPosXO(this.basePersonaje.getPosX() + 3);
                         this.ojo1.setPosYO(this.basePersonaje.getPosY() - 175);
-
+                       // this.ojo2.arrastrarOjo2= false;
                     }
 
 
@@ -114,6 +114,8 @@ class Logica {
                         this.ojo2.setPosYO(this.basePersonaje.getPosY() - 175);
 
                     }
+
+                
 
 
 
@@ -142,16 +144,20 @@ class Logica {
 
                     this.outfit1.dibujarRopa1();
                     this.outfit2.ropa2E = false;
-                    this.outfit1.setPosXO(this.basePersonaje.getPosX());
-                    this.outfit1.setPosYO(this.basePersonaje.getPosY() );
+                    this.outfit1.setPosXR(this.basePersonaje.getPosX()+2);
+                    this.outfit1.setPosYR(this.basePersonaje.getPosY()-44);
+                   /// this.outfit1.posXO=148;
+                   // this.outfit1.posYO= 307;
 
+
+                 
                 }
                 if (this.outfit2.ropa2E == true && this.basePersonaje.activarBase == true) {
 
                     this.outfit2.dibujarRopa2();
                     this.outfit1.ropa1E = false;
-                   this.outfit2.setPosXO(this.basePersonaje.getPosX() + 3);
-                    this.outfit2.setPosYO(this.basePersonaje.getPosY() - 5);
+                   this.outfit2.setPosXR(this.basePersonaje.getPosX()+18);
+                    this.outfit2.setPosYR(this.basePersonaje.getPosY()-1+20);
 
                 }
 
@@ -228,14 +234,33 @@ class Logica {
 
                 }
 
+
+
+                this.flechaBoton = mouseX >= 584 && mouseX <= 685 && mouseY >= 551 && mouseY <= 583;
+
+                if (this.flechaBoton) {
+                    cursor(HAND)
+                } else {
+
+                    cursor(ARROW);
+                }
+        
+                
                 //VALIDACIÓN PANTALLAS
 
                   if ((this.basePersonaje.activarBase == true) && (this.outfit1.ropa1E == true || this.outfit2.ropa2E == true)
                       && (this.look1.cabello1E == true || this.look2.cabello2E == true) && (this.labios1.boca1E == true || this.labios2.boca2E == true || this.labios3.boca3E == true) &&
                       (this.ojo1.ojo1E == true || this.ojo2.ojo2E == true )) {
-                      this.pantalla = 3;
+                   //   this.pantalla = 3;
+                   this.pantallaCrea.activarFlecha=true;
   
   
+                  }
+
+                  if (this.pantallaCrea.activarFlecha==true){
+                      this.pantallaCrea.dibujarBotonFlecha();
+
+                    
                   }
   
 
@@ -268,6 +293,29 @@ class Logica {
                 ///background (0);
                 // this.input.paint();
                 this.pantallaNomP.dibujarPantallaNombrar();
+              
+                this.botonG=mouseX >= 421 && mouseX <= 542 && mouseY >= 165 && mouseY <= 195;
+                this.botonH=mouseX >= 90 && mouseX <= 285 && mouseY >= 398 && mouseY <= 445;
+                this.botonPpg=mouseX >= 234 && mouseX <= 341 && mouseY >= 285 && mouseY <= 316;
+                this.botonJpg= mouseX >= 90 && mouseX <= 193 && mouseY >= 284 && mouseY <= 315;
+               if (this.botonG || this.botonH || this.botonJpg || this.botonPpg){
+                cursor(HAND);
+
+
+               }else{
+                cursor(ARROW);
+               }
+
+
+               
+              
+
+            
+
+
+
+            
+
 
 
 
@@ -291,10 +339,22 @@ class Logica {
                 users2 = this.users;
 
                 for (element in users2) {
-                    text(users2[element].name, 50, 200 + (element * 50));
-                    text(users2[element].id, 150, 200 + (element * 50));
-                    text(users2[element].date, 350, 200 + (element * 50));
+                    textSize(13);
+                    fill(0);
+                    text(users2[element].name, 50, 200 + (element * 30));
+                    text(users2[element].id, 200, 200 + (element * 30));
+                    text(users2[element].date, 387, 200 + (element * 30));
                 }
+
+               textSize(16);
+               fill(127,3,98);
+                text("Nombre",42,170);
+                text("ID personaje",200,170);
+                text("Fecha de creación",387,170);
+                text("Para ordenar la lista: tecla n: nombre, tecla i: Id, tecla f: Fecha",42,140);
+   
+
+
 
                 break;
 
@@ -400,6 +460,9 @@ class Logica {
                 if (mouseX >= 460 && mouseX <= 549 && mouseY >= 406 && mouseY <= 492) {
                     this.outfit1.ropa1E = true;
                     this.outfit2.ropa2E = false;
+                    //this.outfit1.posXO=148;
+                   // this.outfit1.posYO= 307;
+                    console.log(this.outfit1.posXO,this.outfit1.posYO);
                 }
 
                 //OUTFIT 1
@@ -445,6 +508,11 @@ class Logica {
                     this.labios1.boca1E = false;
                     this.labios2.boca2E = false;
                 }
+
+                //BOTÓN SIGUIENTE
+               if(mouseX >= 584 && mouseX <= 685 && mouseY >= 551 && mouseY <= 583) {
+                   this.pantalla=3;
+               }
 
 
 
@@ -590,6 +658,8 @@ class Logica {
 
             this.ojo1.posXO = mouseX;
             this.ojo1.posYO = mouseY;
+           // this.ojo2.arrastrarOjo2= false;
+         //   this.ojo2.arrastrarOjo2= false;
             console.log("entro movimiento ojos1");
 
 
@@ -647,6 +717,8 @@ class Logica {
 
             this.ojo1.ojoCompleto1 = true;
             this.ojo1.arrastrarOjo1 = false;
+         //   this.ojo2.arrastrarOjo2= false;
+           // this.ojo2.ojoCompleto2= false;
             //System.out.println("liberó");
         } else if (this.ojo1.arrastrarOjo1 && !this.ojo1.ojoCompleto1) {
 

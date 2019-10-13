@@ -5,7 +5,9 @@ class PantallaCrear {
         this.pantallaCrea = loadImage("./data/pantallaCreacion.jpg");
         this.botonBase = loadImage("./data/base_1.png");
         this.activarBotonB = true;
-        
+        this.botonFlecha= loadImage("./data/Flecha.png");
+        this.activarFlecha=false;
+      
     }
 
     dibujarPantallaCrear() {
@@ -18,6 +20,22 @@ class PantallaCrear {
         } else {
             this.activarBotonB = false
         }
+
+
+    }
+
+    dibujarBotonFlecha(){
+        if (this.activarFlecha==true){
+            imageMode(CENTER);
+            image(this.botonFlecha, 635,566 , 100, 50);
+            textSize(15);
+            textAlign(CENTER);
+
+            text("Coloca el personaje en la posición inicial para poder",504,515);
+            text("tomarle una foto",385,530);
+
+        }
+
 
 
     }
