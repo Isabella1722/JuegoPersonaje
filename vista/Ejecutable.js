@@ -6,6 +6,7 @@ function setup() {
    
    logica =new Logica();
   // localStorage.clear();
+  //logica.limpiarHistorial();
 }
 
 function draw() {
@@ -21,6 +22,7 @@ function mousePressed(){
     logica.evaluacionPantallas();
     logica.arrastreOjosUno();
     logica.arrastreOjosDos();
+    logica.limpiarHistorial();
     
 }
 

@@ -348,11 +348,19 @@ class Logica {
 
                textSize(16);
                fill(127,3,98);
+               textAlign(CENTER);
                 text("Nombre",42,170);
                 text("ID personaje",200,170);
                 text("Fecha de creación",387,170);
                 text("Para ordenar la lista: tecla n: nombre, tecla i: Id, tecla f: Fecha",233,140);
-              
+                
+                if (mouseX >= 479 && mouseX <= 584 && mouseY >= 122 && mouseY <= 141) {
+                   cursor(HAND);
+
+                }else {
+
+                    cursor(ARROW);
+                }
    
 
 
@@ -577,6 +585,7 @@ class Logica {
 
 
 
+
                 }
 
 
@@ -589,6 +598,15 @@ class Logica {
 
             case 4:
                 //PANTALLA HISTORIAL PERSONAJES
+                if (mouseX >= 479 && mouseX <= 584 && mouseY >= 122 && mouseY <= 141) {
+                    this.pantallaHist.actvarLimpiar=true;
+                    alert("¡Se ha limpiado el historial,recarga el juego y revisa!");
+
+
+                }
+               
+
+
 
 
                 break;
@@ -608,6 +626,13 @@ class Logica {
 
     }
 
+    limpiarHistorial(){
+   
+        if(this.pantallaHist.actvarLimpiar==true){
+            localStorage.clear();
+        }
+
+    }
     arrastreOjosUno() {
         //OJOS UNO
 
@@ -615,7 +640,7 @@ class Logica {
         if (!this.ojo1.arrastrarOjo1 && mouseX >= 364 && mouseX <= 419 && mouseY >= 235 && mouseY <= 242) {
             this.ojo1.arrastrarOjo1 = true;
             //System.out.println("entro clicked");
-            console.log("entro click ojo 1");
+         //   console.log("entro click ojo 1");
 
 
         }
@@ -629,7 +654,7 @@ class Logica {
         if (!this.ojo2.arrastrarOjo2 && mouseX >= 365 && mouseX <= 410 && mouseY >= 285 && mouseY <= 293) {
             this.ojo2.arrastrarOjo2 = true;
             //System.out.println("entro clicked");
-            console.log("entro click ojo 2");
+           // console.log("entro click ojo 2");
             this.ojo1.ojoCompleto1 == false;
 
 
@@ -673,7 +698,7 @@ class Logica {
 
             this.ojo2.posXO = mouseX;
             this.ojo2.posYO = mouseY;
-            console.log("entro movimiento ojos2");
+           // console.log("entro movimiento ojos2");
 
 
         }
@@ -684,7 +709,7 @@ class Logica {
 
     movimientoOjosDos() {
 
-        console.log(this.ojo2.arrastrarOjo2)
+        //console.log(this.ojo2.arrastrarOjo2)
 
 
         // MOVIMIENTO DE LOS OJOS A LA CARA OJOS 2
@@ -695,7 +720,7 @@ class Logica {
             this.ojo2.posYO = mouseY;
             this.ojo1.ojoCompleto1 = false;
             this.ojo1.arrastrarOjo1 = false;
-            console.log("entro movimiento ojos2");
+         //   console.log("entro movimiento ojos2");
 
 
         }
@@ -728,7 +753,7 @@ class Logica {
         }
 
         this.ojo1.arrastrarOjo1 = false;
-        console.log("entro relación ojo 1");
+      //  console.log("entro relación ojo 1");
 
 
 
@@ -773,7 +798,7 @@ class Logica {
 
 
         this.ojo2.arrastrarOjo2 = false;
-        console.log("entro relación ojo2");
+     //   console.log("entro relación ojo2");
     }
 
 

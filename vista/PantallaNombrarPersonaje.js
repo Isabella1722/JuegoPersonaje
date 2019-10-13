@@ -3,6 +3,7 @@ class PantallaNombrarPersonaje{
     constructor(){
    
        this.pantallaNombrarP = loadImage("./data/pantallaResumen.jpg");
+     
        this.input = new InputNombre(89, 169);
     }
    
@@ -10,6 +11,7 @@ class PantallaNombrarPersonaje{
    
        imageMode(CENTER);
        image(this.pantallaNombrarP, width / 2, height / 2, 700, 600);
+
        this.input.pintarInput();
        this.input.mostrarTextoInput();
     }
