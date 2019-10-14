@@ -48,6 +48,17 @@ if (keyCode==BACKSPACE){
 
     logica.pantallaNomP.eliminarTextoInput();
 }
+
+
+
+
+
+
+
+
+
+
+
 if(key == 'i' || key == 'I'){
     logica.ordenarId();
 }
